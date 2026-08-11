@@ -138,16 +138,37 @@
 
   /* ── Aircraft section — plane flies in from top-right on scroll into view ── */
   const acImg = document.querySelector('.aircraft-img');
-  if (acImg && 'IntersectionObserver' in window) {
-    const acIO = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          acImg.classList.add('is-flying');
-          acIO.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.25 });
-    acIO.observe(document.querySelector('.aircraft-top-area'));
+  const acTarget = document.querySelector('.aircraft-top-area');
+  if (acImg && acTarget) {
+    let acTriggered = false;
+    const triggerFlyIn = () => {
+      if (acTriggered) return;
+      acTriggered = true;
+      acImg.classList.add('is-flying');
+    };
+
+    if ('IntersectionObserver' in window) {
+      const acIO = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            triggerFlyIn();
+            acIO.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.25 });
+      acIO.observe(acTarget);
+    } else {
+      // no IntersectionObserver support — just show it
+      triggerFlyIn();
+    }
+
+    // safety net: if the section is already on screen at load (e.g. deep
+    // link, or the observer fails to fire for any reason), never leave
+    // the plane permanently stuck off-screen
+    const rect = acTarget.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      triggerFlyIn();
+    }
   }
 
 })();
