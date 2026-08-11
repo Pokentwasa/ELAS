@@ -178,7 +178,7 @@ button, select, input, textarea { font: inherit; }
   align-items: flex-start;
   justify-content: center;
   pointer-events: none;
-  padding-top: 0px;
+  padding-top: 28px;
 }
 .hero-aircraft {
   position: relative;
