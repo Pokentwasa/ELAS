@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ELAS — East London Air Services</title>
+<meta name="description" content="East London Air Services. Private, medevac, and cargo charters across South Africa. Based at East London Airport since 1998.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-left">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#aircraft">Our Aircraft</a>
+    <a href="#adventures">Adventures</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-center">
+    <a href="#" class="nav-logo">ELAS</a>
+  </div>
+  <div class="nav-right">
+    <a href="tel:+27437361663">+27 (0)43 736 1663</a>
+    <a href="mailto:info@eastlondonairservices.co.za">info@eastlondonairservices.co.za</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<!-- FIXED BOOK CTA — always visible -->
+<div class="book-pill">
+  <a href="#contact" class="book-btn">
+    Book a Charter
+    <span class="book-icon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 16v-2l-8-5V3.5A1.5 1.5 0 0011.5 2 1.5 1.5 0 0010 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5z"/></svg>
+    </span>
+  </a>
+</div>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════
+       HERO — cinematic, Jesko-style
+       Aircraft centred, headline split left/right
+  ═══════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/6901f63acc885433fae6c5f3/6e759402-74ce-44f7-81c3-30b58aa54d7a/Photo+2025-10-28%2C+4+00+33+PM.png"
+        alt="ELAS aircraft"
+        class="hero-aircraft"
+        id="heroAircraft"
+      >
+    </div>
+
+    <!-- Left headline -->
+    <div class="hero-hl hero-hl--left">
+      <span class="hl-line">We are</span>
+      <span class="hl-line hl-line--bold">precision.</span>
+    </div>
+
+    <!-- Right headline -->
+    <div class="hero-hl hero-hl--right">
+      <span class="hl-line">We are</span>
+      <span class="hl-line hl-line--bold">distance.</span>
+    </div>
+
+    <!-- Bottom-left copy -->
+    <div class="hero-copy">
+      <p class="hero-copy-sub">Trusted to take you further.</p>
+      <div class="hero-copy-rule"></div>
+      <p class="hero-copy-body">Since 1998, ELAS has delivered trusted private, medevac, and time-sensitive cargo charters across South Africa — personal service, precise planning, on time.</p>
+    </div>
+
+    <!-- Bottom-right scroll cue -->
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <div class="hero-scroll-labels">
+        <span>↓ Scroll down</span>
+        <span>To start the journey</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STATEMENT — full-bleed sky, massive text
+       like Jesko's "5,000 missions" section
+  ═══════════════════════════════════════════ -->
+  <section class="statement">
+    <div class="statement-bg">
+      <img src="https://images.squarespace-cdn.com/content/v1/6901f63acc885433fae6c5f3/15bd3cea-c89a-46dd-b2e2-2baf5f1c4d2a/IMG_7065.png" alt="Eastern Cape sky" loading="lazy">
+    </div>
+    <div class="statement-content">
+      <p class="statement-text" id="statementText">
+        East London Air Services<sup>®</sup> has operated since 1998 across South Africa — private charters, medevac, and time-critical cargo. <span class="statement-fade">Based at East London Airport, our clients trust us to deliver on time, every time.</span>
+      </p>
+    </div>
+    <div class="statement-bottom">
+      <div class="stat-item">
+        <span class="stat-n">1998</span>
+        <span class="stat-l">Operating Since</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">24/7</span>
+        <span class="stat-l">Medevac Availability</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-n">SA-wide</span>
+        <span class="stat-l">Route Coverage</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SERVICES — 3 columns, minimal editorial
+  ═══════════════════════════════════════════ -->
+  <section class="services" id="services">
+    <div class="services-header">
+      <span class="eyebrow">What we do</span>
+      <h2>Every flight,<br>a mission.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card" data-num="01">
+        <div class="svc-top">
+          <h3>Private Charter</h3>
+          <span class="svc-arrow">→</span>
+        </div>
+        <p>Direct routes to any airstrip in South Africa. Coastal escapes, safari lodges, business travel. On your schedule, not ours.</p>
+        <a href="#contact" class="svc-link">Request a quote →</a>
+      </div>
+      <div class="svc-card" data-num="02">
+        <div class="svc-top">
+          <h3>Medevac</h3>
+          <span class="svc-badge">24/7</span>
+        </div>
+        <p>Rapid medical air transport across South Africa. Available around the clock. Every second matters — we're ready when you call.</p>
+        <a href="#contact" class="svc-link">Contact operations →</a>
+      </div>
+      <div class="svc-card" data-num="03">
+        <div class="svc-top">
+          <h3>Cargo & Time-Critical</h3>
+          <span class="svc-arrow">→</span>
+        </div>
+        <p>When road and commercial aviation can't make it in time. Sensitive cargo, specimen transport, urgent freight — flown direct.</p>
+        <a href="#contact" class="svc-link">Discuss your cargo →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       AIRCRAFT — "Fly in Confidence" split layout
+       like Jesko's "Fly in Luxury" section
+  ═══════════════════════════════════════════ -->
+  <section class="aircraft" id="aircraft">
+    <div class="aircraft-bg-text">
+      <span class="bg-word">Fly in</span>
+      <span class="bg-word">Confidence</span>
+    </div>
+    <div class="aircraft-visual">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/6901f63acc885433fae6c5f3/6e759402-74ce-44f7-81c3-30b58aa54d7a/Photo+2025-10-28%2C+4+00+33+PM.png"
+        alt="ELAS aircraft"
+        class="aircraft-img"
+        loading="lazy"
+      >
+    </div>
+    <div class="aircraft-info">
+      <div class="aircraft-label-row">
+        <span class="ac-label">East London Air Services</span>
+        <span class="ac-label">AMO Maintained</span>
+      </div>
+      <p class="aircraft-desc">Our fleet is maintained in-house by Air Hart AMO — one of the Eastern Cape's most trusted aircraft maintenance organisations. Every flight departs with the highest safety clearances.</p>
+      <div class="aircraft-specs">
+        <div class="spec-row"><span>Maintenance</span><span>In-House AMO</span></div>
+        <div class="spec-row"><span>Base</span><span>East London Airport</span></div>
+        <div class="spec-row"><span>Coverage</span><span>South Africa-wide</span></div>
+        <div class="spec-row"><span>Operations</span><span>Private · Medevac · Cargo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ADVENTURES — destination scroll strip
+  ═══════════════════════════════════════════ -->
+  <section class="adventures" id="adventures">
+    <div class="adv-header">
+      <span class="eyebrow">Adventures</span>
+      <h2>Where do you<br>want to go?</h2>
+      <p>Private aviation opens destinations commercial flights can't reach. A safari lodge at dawn. A coastal escape by noon.</p>
+    </div>
+    <div class="adv-strip" id="advStrip">
+      <div class="adv-item">
+        <div class="adv-img"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80&fit=crop" alt="Kruger" loading="lazy"></div>
+        <span class="adv-name">Kruger</span>
+        <span class="adv-dist">~2 hrs from EL</span>
+      </div>
+      <div class="adv-item">
+        <div class="adv-img"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&q=80&fit=crop" alt="Garden Route" loading="lazy"></div>
+        <span class="adv-name">Garden Route</span>
+        <span class="adv-dist">~45 min from EL</span>
+      </div>
+      <div class="adv-item">
+        <div class="adv-img"><img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=600&q=80&fit=crop" alt="Cape Town" loading="lazy"></div>
+        <span class="adv-name">Cape Town</span>
+        <span class="adv-dist">~1.5 hrs from EL</span>
+      </div>
+      <div class="adv-item">
+        <div class="adv-img"><img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80&fit=crop" alt="Wild Coast" loading="lazy"></div>
+        <span class="adv-name">Wild Coast</span>
+        <span class="adv-dist">Direct access</span>
+      </div>
+      <div class="adv-item">
+        <div class="adv-img"><img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=80&fit=crop" alt="Phinda" loading="lazy"></div>
+        <span class="adv-name">Phinda Reserve</span>
+        <span class="adv-dist">~1.5 hrs from EL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       WHY ELAS — editorial numbered list
+  ═══════════════════════════════════════════ -->
+  <section class="why" id="about">
+    <div class="why-header">
+      <span class="eyebrow">Why book with us</span>
+    </div>
+    <div class="why-list">
+      <div class="why-item">
+        <span class="why-n">01</span>
+        <div class="why-content">
+          <h3>Based at East London Airport</h3>
+          <p>Connecting the Eastern Cape to every corner of South Africa — coastal towns, bush lodges, major hubs.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-n">02</span>
+        <div class="why-content">
+          <h3>In-house AMO maintenance</h3>
+          <p>Air Hart AMO handles all aircraft maintenance. No outsourcing. Full traceability, highest safety standards.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-n">03</span>
+        <div class="why-content">
+          <h3>24/7 medevac readiness</h3>
+          <p>Medical emergencies don't wait for business hours. Our medevac operations are available around the clock, every day.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <span class="why-n">04</span>
+        <div class="why-content">
+          <h3>Personal service, start to finish</h3>
+          <p>From first enquiry to final landing, every detail is handled with care. You deal with people who know your flight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT — dark section, clean form
+  ═══════════════════════════════════════════ -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <span class="eyebrow eyebrow--light">Get in touch</span>
+        <h2>Chart your<br>course.</h2>
+        <p>Tell us where you're going and when. We'll handle the rest.</p>
+        <div class="contact-details">
+          <div>
+            <span class="cd-label">Phone</span>
+            <a href="tel:+27437361663">+27 (0)43 736 1663</a>
+          </div>
+          <div>
+            <span class="cd-label">Email</span>
+            <a href="mailto:info@eastlondonairservices.co.za">info@eastlondonairservices.co.za</a>
+          </div>
+          <div>
+            <span class="cd-label">Location</span>
+            <span>East London Airport, Eastern Cape</span>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-field">
+          <label for="fName">Your name</label>
+          <input type="text" id="fName" name="name" placeholder="Full name" required>
+        </div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fEmail">Email</label>
+            <input type="email" id="fEmail" name="email" placeholder="you@email.com" required>
+          </div>
+          <div class="form-field">
+            <label for="fPhone">Phone</label>
+            <input type="tel" id="fPhone" name="phone" placeholder="+27 ...">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="fService">Type of charter</label>
+          <select id="fService" name="service">
+            <option value="">Select...</option>
+            <option>Private Charter</option>
+            <option>Medevac</option>
+            <option>Cargo / Time-Critical</option>
+            <option>Adventure / Safari</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="fMsg">Tell us more</label>
+          <textarea id="fMsg" name="message" rows="3" placeholder="Origin, destination, date, number of passengers..."></textarea>
+        </div>
+        <button type="submit" class="form-submit" id="formSubmit">Send enquiry</button>
+        <p class="form-note">We'll respond within a few hours. For urgent medevac: <a href="tel:+27437361663">call direct</a>.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-left">
+    <span class="footer-logo">ELAS</span>
+    <span>East London Air Services</span>
+    <span>© 2026</span>
+  </div>
+  <div class="footer-right">
+    <a href="https://www.facebook.com/flyelas/" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/eastlondonairservices/" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/company/east-london-air-services/" target="_blank">LinkedIn</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
