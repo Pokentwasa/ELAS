@@ -30,8 +30,8 @@
       // then descends further down onto the text as scrolling starts
       const progress = Math.min(Math.max(y / 200, 0), 1);
 
-      const scale = 1 + progress * 0.4;       // grows further, but from an already-large base
-      const descend = progress * 180;         // moves DOWN onto the text
+      const scale = 1 + progress * 0.25;      // grows further from an already huge base
+      const descend = progress * 140;         // moves DOWN, cutting through the text
 
       aircraft.style.transform =
         `translateY(${descend}px) scale(${scale})`;
