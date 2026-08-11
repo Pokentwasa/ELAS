@@ -183,8 +183,8 @@ button, select, input, textarea { font: inherit; }
 .hero-aircraft {
   position: relative;
   z-index: 0;
-  width: 88%;
-  max-width: 2000px;
+  width: 52%;
+  max-width: 1200px;
   object-fit: contain;
   transform-origin: 50% 0%;
   filter: drop-shadow(0 32px 64px rgba(0,0,0,.14));
