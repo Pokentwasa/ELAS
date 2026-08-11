@@ -26,20 +26,19 @@
 
     function updateAircraft() {
       const y = window.scrollY;
-      const heroH = heroSection.offsetHeight;
-      // progress reaches 1 halfway through the hero, then holds — so the
-      // hover-over-text moment fully lands before the section scrolls away
-      const progress = Math.min(Math.max(y / (heroH * 0.45), 0), 1);
+      // starts small near the top of the hero on landing, then descends
+      // down onto the headline and grows as scrolling starts — full effect
+      // lands within ~200px so it's seen well before the hero scrolls away
+      const progress = Math.min(Math.max(y / 200, 0), 1);
 
-      const scale = 1 + progress * 0.55;      // grows up to 1.55x
-      const rise = progress * -50;            // lifts slightly as it scrolls
-      const drift = y * 0.15;                 // original gentle parallax drift
+      const scale = 1 + progress * 1.15;      // grows from small to large
+      const descend = progress * 150;         // moves DOWN onto the text
 
       aircraft.style.transform =
-        `translateY(${drift + rise}px) scale(${scale})`;
+        `translateY(${descend}px) scale(${scale})`;
 
-      // sits above the headline almost as soon as scrolling starts
-      aircraft.classList.toggle('is-hovering', progress > 0.06);
+      // sits above the headline the moment scrolling starts at all
+      aircraft.classList.toggle('is-hovering', y > 4);
 
       ticking = false;
     }
