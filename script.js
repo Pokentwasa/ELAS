@@ -26,12 +26,14 @@
 
     function updateAircraft() {
       const y = window.scrollY;
-      // sits in the gap above the headline on landing (full size already),
-      // then descends further down onto the text as scrolling starts
-      const progress = Math.min(Math.max(y / 200, 0), 1);
+      const heroH = heroSection.offsetHeight;
+      // full effect completes over ~70% of the hero's own height, so it
+      // scales correctly whether the hero is 700px or 1400px tall — and
+      // by the end the plane has travelled down to the bottom of the section
+      const progress = Math.min(Math.max(y / (heroH * 0.7), 0), 1);
 
-      const scale = 1 + progress * 0.45;      // grows from a sane starting size
-      const descend = progress * 200;         // moves DOWN, cutting through the text
+      const scale = 1 + progress * 0.6;         // grows from a sane starting size
+      const descend = progress * (heroH * 0.62); // travels down to the section's end
 
       aircraft.style.transform =
         `translateY(${descend}px) scale(${scale})`;
