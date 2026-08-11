@@ -447,10 +447,9 @@ button, select, input, textarea { font: inherit; }
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   background: #EDEBE6;
   overflow: hidden;
-  padding-bottom: 80px;
 }
 .aircraft-bg-photo {
   position: absolute;
@@ -467,6 +466,13 @@ button, select, input, textarea { font: inherit; }
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(26,25,22,.35) 0%, rgba(74,127,165,.35) 50%, rgba(26,25,22,.65) 100%);
+}
+
+/* Top area — background words + flying aircraft, takes the bulk of the section */
+.aircraft-top-area {
+  position: relative;
+  flex: 1;
+  min-height: 0;
 }
 
 /* Giant background words */
@@ -511,22 +517,25 @@ button, select, input, textarea { font: inherit; }
   filter: drop-shadow(0 20px 60px rgba(0,0,0,.35));
 }
 
-/* Specs — bottom right */
+/* Info bar — full-width row along the bottom, clear of the plane/text above */
 .aircraft-info {
   position: relative;
   z-index: 3;
-  margin-left: auto;
-  max-width: 340px;
-  margin-top: auto;
-  padding: 40px;
-  align-self: flex-end;
+  border-top: 1px solid rgba(255,255,255,.25);
+  padding: 32px 40px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.aircraft-info-top {
+  flex: 1 1 320px;
+  min-width: 260px;
 }
 .aircraft-label-row {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255,255,255,.25);
+  gap: 24px;
+  margin-bottom: 10px;
 }
 .ac-label {
   font-size: 10px;
@@ -539,20 +548,27 @@ button, select, input, textarea { font: inherit; }
   font-size: 13px;
   font-weight: 300;
   color: rgba(255,255,255,.85);
-  line-height: 1.75;
-  margin-bottom: 28px;
+  line-height: 1.6;
+  max-width: 480px;
 }
-.aircraft-specs { border-top: 1px solid rgba(255,255,255,.25); }
-.spec-row {
+.aircraft-specs {
+  flex: 2 1 560px;
   display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,.25);
-  font-size: 12px;
+  gap: 0;
+}
+.spec-row {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 24px;
+  border-left: 1px solid rgba(255,255,255,.2);
+  font-size: 13px;
   font-weight: 400;
 }
-.spec-row span:first-child { color: rgba(255,255,255,.6); letter-spacing: .04em; }
-.spec-row span:last-child { color: var(--white); font-weight: 500; text-align: right; }
+.spec-row:first-child { border-left: none; padding-left: 0; }
+.spec-row span:first-child { color: rgba(255,255,255,.55); letter-spacing: .04em; font-size: 11px; text-transform: uppercase; }
+.spec-row span:last-child { color: var(--white); font-weight: 500; }
 
 /* ============================================================
    ADVENTURES — horizontal scroll strip
