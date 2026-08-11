@@ -466,7 +466,7 @@ button, select, input, textarea { font: inherit; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(26,25,22,.15) 0%, rgba(74,127,165,.25) 50%, rgba(26,25,22,.55) 100%);
+  background: linear-gradient(180deg, rgba(26,25,22,.35) 0%, rgba(74,127,165,.35) 50%, rgba(26,25,22,.65) 100%);
 }
 
 /* Giant background words */
@@ -487,6 +487,7 @@ button, select, input, textarea { font: inherit; }
   color: var(--white);
   line-height: 1;
   white-space: nowrap;
+  text-shadow: 0 8px 40px rgba(0,0,0,.55), 0 2px 12px rgba(0,0,0,.4);
 }
 
 /* Aircraft image — wide flying shot, cuts across the background text
@@ -496,8 +497,8 @@ button, select, input, textarea { font: inherit; }
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  max-width: 1600px;
+  width: 48%;
+  max-width: 850px;
   display: flex;
   align-items: center;
   justify-content: center;
