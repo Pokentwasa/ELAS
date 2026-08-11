@@ -136,4 +136,18 @@
     });
   }
 
+  /* ── Aircraft section — plane flies in from top-right on scroll into view ── */
+  const acImg = document.querySelector('.aircraft-img');
+  if (acImg && 'IntersectionObserver' in window) {
+    const acIO = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          acImg.classList.add('is-flying');
+          acIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.25 });
+    acIO.observe(document.querySelector('.aircraft-top-area'));
+  }
+
 })();
