@@ -180,11 +180,18 @@ button, select, input, textarea { font: inherit; }
   padding-top: 60px;
 }
 .hero-aircraft {
+  position: relative;
+  z-index: 0;
   width: 56%;
   max-width: 780px;
   object-fit: contain;
   filter: drop-shadow(0 32px 64px rgba(0,0,0,.14));
-  transition: transform 1.2s var(--ease);
+  transition: transform .7s cubic-bezier(.16,.8,.24,1), filter .7s var(--ease);
+  will-change: transform;
+}
+.hero-aircraft.is-hovering {
+  z-index: 3;
+  filter: drop-shadow(0 48px 90px rgba(0,0,0,.22));
 }
 
 /* Split headlines — constrained so they never cross into aircraft zone */
