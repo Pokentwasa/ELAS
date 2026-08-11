@@ -178,13 +178,13 @@ button, select, input, textarea { font: inherit; }
   align-items: flex-start;
   justify-content: center;
   pointer-events: none;
-  padding-top: 40px;
+  padding-top: 0px;
 }
 .hero-aircraft {
   position: relative;
   z-index: 0;
-  width: 56%;
-  max-width: 780px;
+  width: 88%;
+  max-width: 1300px;
   object-fit: contain;
   transform-origin: 50% 0%;
   filter: drop-shadow(0 32px 64px rgba(0,0,0,.14));
