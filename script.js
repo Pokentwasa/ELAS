@@ -26,13 +26,12 @@
 
     function updateAircraft() {
       const y = window.scrollY;
-      // starts small near the top of the hero on landing, then descends
-      // down onto the headline and grows as scrolling starts — full effect
-      // lands within ~200px so it's seen well before the hero scrolls away
+      // sits in the gap above the headline on landing (full size already),
+      // then descends further down onto the text as scrolling starts
       const progress = Math.min(Math.max(y / 200, 0), 1);
 
-      const scale = 1 + progress * 1.15;      // grows from small to large
-      const descend = progress * 150;         // moves DOWN onto the text
+      const scale = 1 + progress * 0.4;       // grows further, but from an already-large base
+      const descend = progress * 180;         // moves DOWN onto the text
 
       aircraft.style.transform =
         `translateY(${descend}px) scale(${scale})`;
