@@ -452,6 +452,22 @@ button, select, input, textarea { font: inherit; }
   overflow: hidden;
   padding-bottom: 80px;
 }
+.aircraft-bg-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.aircraft-bg-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.aircraft-bg-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,25,22,.15) 0%, rgba(74,127,165,.25) 50%, rgba(26,25,22,.55) 100%);
+}
 
 /* Giant background words */
 .aircraft-bg-text {
@@ -462,41 +478,42 @@ button, select, input, textarea { font: inherit; }
   justify-content: space-between;
   pointer-events: none;
   padding: 0 40px;
-  z-index: 0;
+  z-index: 1;
 }
 .bg-word {
   font-size: clamp(72px, 12vw, 160px);
   font-weight: 800;
   letter-spacing: -.04em;
-  color: var(--ink);
+  color: var(--white);
   line-height: 1;
   white-space: nowrap;
 }
 
-/* Aircraft image — centred, bleeds into background text */
+/* Aircraft image — wide flying shot, cuts across the background text
+   left to right, like the hero treatment */
 .aircraft-visual {
   position: absolute;
   left: 50%;
-  top: 0;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 45%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  max-width: 1600px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 2;
   pointer-events: none;
 }
 .aircraft-img {
   width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 20px 60px rgba(0,0,0,.1));
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,.35));
 }
 
 /* Specs — bottom right */
 .aircraft-info {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   margin-left: auto;
   max-width: 340px;
   margin-top: auto;
@@ -508,33 +525,33 @@ button, select, input, textarea { font: inherit; }
   justify-content: space-between;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,.25);
 }
 .ac-label {
   font-size: 10px;
   font-weight: 500;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--ink-dim);
+  color: rgba(255,255,255,.65);
 }
 .aircraft-desc {
   font-size: 13px;
   font-weight: 300;
-  color: var(--ink-mid);
+  color: rgba(255,255,255,.85);
   line-height: 1.75;
   margin-bottom: 28px;
 }
-.aircraft-specs { border-top: 1px solid var(--border); }
+.aircraft-specs { border-top: 1px solid rgba(255,255,255,.25); }
 .spec-row {
   display: flex;
   justify-content: space-between;
   padding: 10px 0;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,.25);
   font-size: 12px;
   font-weight: 400;
 }
-.spec-row span:first-child { color: var(--ink-dim); letter-spacing: .04em; }
-.spec-row span:last-child { color: var(--ink); font-weight: 500; text-align: right; }
+.spec-row span:first-child { color: rgba(255,255,255,.6); letter-spacing: .04em; }
+.spec-row span:last-child { color: var(--white); font-weight: 500; text-align: right; }
 
 /* ============================================================
    ADVENTURES — horizontal scroll strip
@@ -829,7 +846,7 @@ button, select, input, textarea { font: inherit; }
   .adv-strip { padding: 0 24px 60px; }
 
   .aircraft-bg-text { flex-direction: column; justify-content: flex-start; padding: 80px 24px 0; }
-  .aircraft-visual { position: relative; left: auto; top: auto; transform: none; width: 100%; margin: 20px auto; }
+  .aircraft-visual { position: relative; left: auto; top: auto; transform: none; width: 100%; max-width: none; margin: 20px auto; }
   .aircraft { flex-direction: column; padding-bottom: 0; min-height: auto; }
   .aircraft-info { max-width: 100%; margin: 0; padding: 32px 24px; align-self: auto; }
 
