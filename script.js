@@ -136,39 +136,48 @@
     });
   }
 
-  /* ── Aircraft section — plane flies in from top-right on scroll into view ── */
+  /* ── Aircraft section — scroll-driven flight, matching the hero plane.
+     The aircraft flies IN from the top-right as the section enters the
+     viewport, sits at rest when the section is centred, then flies OUT
+     to the bottom-left as the section scrolls away. ── */
   const acImg = document.querySelector('.aircraft-img');
-  const acTarget = document.querySelector('.aircraft-top-area');
-  if (acImg && acTarget) {
-    let acTriggered = false;
-    const triggerFlyIn = () => {
-      if (acTriggered) return;
-      acTriggered = true;
-      acImg.classList.add('is-flying');
-    };
+  const acSection = document.querySelector('.aircraft');
+  if (acImg && acSection) {
+    let acTicking = false;
 
-    if ('IntersectionObserver' in window) {
-      const acIO = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            triggerFlyIn();
-            acIO.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.25 });
-      acIO.observe(acTarget);
-    } else {
-      // no IntersectionObserver support — just show it
-      triggerFlyIn();
+    function updateAircraftSection() {
+      const rect = acSection.getBoundingClientRect();
+      const vh = window.innerHeight;
+
+      // p runs -1 (section still below the fold) → 0 (centred) → +1 (scrolled past)
+      const sectionCentre = rect.top + rect.height / 2;
+      const viewportCentre = vh / 2;
+      const range = vh / 2 + rect.height / 2;
+      let p = (viewportCentre - sectionCentre) / range;
+      p = Math.max(-1, Math.min(1, p));
+
+      // ease so it settles gently around the centre rather than moving linearly
+      const eased = Math.sign(p) * Math.pow(Math.abs(p), 1.4);
+
+      const x = -eased * 62;              // vw — enters from right, exits left
+      const y = eased * 40;               // vh — enters high, exits low
+      const scale = 1 - Math.abs(eased) * 0.22;
+
+      acImg.style.transform =
+        `translate(${x}vw, ${y}vh) scale(${scale})`;
+
+      acTicking = false;
     }
 
-    // safety net: if the section is already on screen at load (e.g. deep
-    // link, or the observer fails to fire for any reason), never leave
-    // the plane permanently stuck off-screen
-    const rect = acTarget.getBoundingClientRect();
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      triggerFlyIn();
-    }
+    window.addEventListener('scroll', () => {
+      if (!acTicking) {
+        requestAnimationFrame(updateAircraftSection);
+        acTicking = true;
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', updateAircraftSection, { passive: true });
+    updateAircraftSection();
   }
 
 })();
