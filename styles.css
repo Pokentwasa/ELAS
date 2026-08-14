@@ -223,31 +223,41 @@ button, select, input, textarea { font: inherit; }
 }
 
 /* Bottom-left copy */
+/* Tagline block — runs full width across the hero, centred. This is the
+   line the whole brand hangs on, so it leads rather than sitting in a
+   corner as fine print. */
 .hero-copy {
   position: absolute;
-  bottom: 96px;
+  bottom: 92px;
   left: 40px;
-  max-width: 300px;
+  right: 40px;
+  max-width: none;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .hero-copy-sub {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: .04em;
-  margin-bottom: 12px;
+  font-size: clamp(28px, 3.6vw, 56px);
+  font-weight: 300;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  margin-bottom: 18px;
   color: var(--ink);
 }
 .hero-copy-rule {
-  width: 32px;
+  width: 48px;
   height: 1.5px;
   background: var(--sky);
-  margin-bottom: 12px;
+  margin-bottom: 18px;
 }
 .hero-copy-body {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 300;
   color: var(--ink-mid);
   line-height: 1.7;
+  max-width: 460px;
 }
 
 /* Bottom-right scroll cue */
@@ -865,7 +875,10 @@ button, select, input, textarea { font: inherit; }
   .hl-line { font-size: clamp(26px, 7.4vw, 42px); }
   .hero-hl--left { left: 20px; }
   .hero-hl--right { right: 20px; }
-  .hero-copy { left: 20px; bottom: 80px; max-width: 240px; }
+  .hero-copy { left: 20px; right: 20px; bottom: 128px; max-width: none; }
+  .hero-copy-sub { font-size: clamp(22px, 6.4vw, 32px); margin-bottom: 14px; }
+  .hero-copy-rule { margin-bottom: 14px; }
+  .hero-copy-body { font-size: 13px; max-width: 320px; }
   .hero-scroll { display: none; }
   /* aircraft sits below the nav, not behind it */
   .hero-bg { padding-top: 92px; }
