@@ -178,7 +178,8 @@ button, select, input, textarea { font: inherit; }
   align-items: flex-start;
   justify-content: center;
   pointer-events: none;
-  padding-top: 28px;
+  /* clear the fixed nav so the aircraft is never tucked underneath it */
+  padding-top: 104px;
 }
 .hero-aircraft {
   position: relative;
@@ -522,10 +523,10 @@ button, select, input, textarea { font: inherit; }
   width: 100%;
   object-fit: contain;
   filter: drop-shadow(0 20px 60px rgba(0,0,0,.35));
-  transform: translate(65vw, -45vh) scale(0.75);
-  transition: transform 3.4s cubic-bezier(.22,.9,.32,1);
-}
-.aircraft-img.is-flying {
+  will-change: transform;
+  /* Default is the resting position. Scroll-driven motion is applied by JS,
+     so if JS ever fails the aircraft is simply visible rather than parked
+     off-screen forever. */
   transform: translate(0, 0) scale(1);
 }
 
@@ -858,13 +859,17 @@ button, select, input, textarea { font: inherit; }
   .nav-toggle { display: flex; position: static; transform: none; }
   .nav-center { text-align: left; }
 
-  .hero-hl { transform: translateY(-60%); }
-  .hl-line { font-size: clamp(36px, 9vw, 60px); }
+  /* 22vw is far too narrow on a phone — "distance." was being clipped.
+     Give each headline column real room and size the type to fit it. */
+  .hero-hl { transform: translateY(-60%); max-width: 44vw; }
+  .hl-line { font-size: clamp(26px, 7.4vw, 42px); }
   .hero-hl--left { left: 20px; }
   .hero-hl--right { right: 20px; }
   .hero-copy { left: 20px; bottom: 80px; max-width: 240px; }
   .hero-scroll { display: none; }
-  .hero-aircraft { width: 70%; }
+  /* aircraft sits below the nav, not behind it */
+  .hero-bg { padding-top: 92px; }
+  .hero-aircraft { width: 78%; }
 
   .statement-content { padding: 100px 24px 60px; }
   .statement-bottom { padding: 0 24px; flex-direction: column; }
