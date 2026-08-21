@@ -166,7 +166,30 @@ button, select, input, textarea { font: inherit; }
   height: 100vh;
   min-height: 700px;
   overflow: hidden;
-  background: var(--bg);
+  background: var(--bg-dark);
+}
+
+/* Full-bleed sky photo behind the aircraft, with a scrim so the
+   white headline / copy / scroll cue stay readable at every zone
+   of the hero (mid for headlines, bottom for copy). */
+.hero-photo-bg {
+  position: absolute;
+  inset: 0;
+}
+.hero-photo-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-photo-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(26,25,22,.45) 0%,
+    rgba(26,25,22,.1) 30%,
+    rgba(26,25,22,.15) 55%,
+    rgba(26,25,22,.6) 100%);
 }
 
 /* Aircraft starts near the TOP of the hero, above the headline —
@@ -214,12 +237,12 @@ button, select, input, textarea { font: inherit; }
   font-size: clamp(36px, 5vw, 82px);
   font-weight: 300;
   letter-spacing: -.03em;
-  color: var(--ink);
+  color: var(--white);
   line-height: 1.05;
 }
 .hl-line--bold {
   font-weight: 800;
-  color: var(--ink);
+  color: var(--white);
 }
 
 /* Bottom-left copy */
@@ -244,7 +267,7 @@ button, select, input, textarea { font: inherit; }
   letter-spacing: -.02em;
   line-height: 1.1;
   margin-bottom: 18px;
-  color: var(--ink);
+  color: var(--white);
 }
 .hero-copy-rule {
   width: 48px;
@@ -255,7 +278,7 @@ button, select, input, textarea { font: inherit; }
 .hero-copy-body {
   font-size: 14px;
   font-weight: 300;
-  color: var(--ink-mid);
+  color: rgba(255,255,255,.65);
   line-height: 1.7;
   max-width: 460px;
 }
@@ -271,7 +294,7 @@ button, select, input, textarea { font: inherit; }
 .hero-scroll-line {
   width: 1px;
   height: 40px;
-  background: var(--border);
+  background: rgba(255,255,255,.3);
   margin-left: auto;
   margin-bottom: 12px;
 }
@@ -285,7 +308,7 @@ button, select, input, textarea { font: inherit; }
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--ink-dim);
+  color: rgba(255,255,255,.55);
 }
 
 /* ============================================================
@@ -299,21 +322,7 @@ button, select, input, textarea { font: inherit; }
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-}
-.statement-bg {
-  position: absolute;
-  inset: 0;
-}
-.statement-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.statement-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(244,243,240,.1) 0%, rgba(74,127,165,.35) 50%, rgba(26,25,22,.6) 100%);
+  background: var(--bg);
 }
 .statement-content {
   position: relative;
@@ -326,7 +335,7 @@ button, select, input, textarea { font: inherit; }
   font-weight: 700;
   line-height: 1.12;
   letter-spacing: -.02em;
-  color: var(--white);
+  color: var(--ink);
 }
 .statement-text sup {
   font-size: .45em;
@@ -334,7 +343,7 @@ button, select, input, textarea { font: inherit; }
   font-weight: 400;
 }
 .statement-fade {
-  color: rgba(255,255,255,.45);
+  color: var(--ink-mid);
 }
 
 /* Stats row at bottom of statement */
@@ -343,13 +352,13 @@ button, select, input, textarea { font: inherit; }
   z-index: 1;
   display: flex;
   gap: 0;
-  border-top: 1px solid rgba(255,255,255,.15);
+  border-top: 1px solid var(--border);
   padding: 0 40px;
 }
 .stat-item {
   flex: 1;
   padding: 32px 0;
-  border-right: 1px solid rgba(255,255,255,.1);
+  border-right: 1px solid var(--border);
   padding-left: 40px;
 }
 .stat-item:first-child { padding-left: 0; }
@@ -358,7 +367,7 @@ button, select, input, textarea { font: inherit; }
   display: block;
   font-size: 38px;
   font-weight: 800;
-  color: var(--white);
+  color: var(--ink);
   letter-spacing: -.02em;
   line-height: 1;
   margin-bottom: 4px;
@@ -368,7 +377,7 @@ button, select, input, textarea { font: inherit; }
   font-weight: 400;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,.45);
+  color: var(--ink-mid);
 }
 
 /* ============================================================
@@ -886,7 +895,7 @@ button, select, input, textarea { font: inherit; }
 
   .statement-content { padding: 100px 24px 60px; }
   .statement-bottom { padding: 0 24px; flex-direction: column; }
-  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.1); padding-left: 0; }
+  .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding-left: 0; }
 
   .services, .adventures, .why, .contact { padding-left: 24px; padding-right: 24px; }
   .adv-header { padding: 0 24px; }
