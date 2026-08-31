@@ -1,7 +1,7 @@
 /* ============================================================
-   ELAS — East London Air Services
+   AIR DU CAP — Private South African Charter Experiences
    Aesthetic: Jesko Jets — cinematic, confident, minimal
-   Palette: ELAS brand — off-white bg, charcoal type, sky blue accent
+   Palette: brand — off-white bg, charcoal type, sky blue accent
    Type: Plus Jakarta Sans — rounded, confident, heavy headlines
 ============================================================ */
 
@@ -11,7 +11,7 @@
   --ink:     #1A1916;     /* primary type */
   --ink-mid: rgba(26,25,22,.5);
   --ink-dim: rgba(26,25,22,.3);
-  --sky:     #4A7FA5;     /* ELAS sky blue accent — logo colour */
+  --sky:     #4A7FA5;     /* sky blue accent — logo colour */
   --sky-dim: rgba(74,127,165,.12);
   --white:   #FFFFFF;
   --border:  rgba(26,25,22,.1);
@@ -677,7 +677,7 @@ button, select, input, textarea { font: inherit; }
 }
 
 /* ============================================================
-   WHY ELAS — editorial numbered list
+   WHY AIR DU CAP — editorial numbered list
 ============================================================ */
 .why {
   padding: 120px 40px;
